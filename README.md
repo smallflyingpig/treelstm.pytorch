@@ -7,14 +7,19 @@ This is a [PyTorch](http://pytorch.org/) implementation of Tree-LSTM as describe
  - Known differences include the way the gradients are accumulated (normalized by batchsize or not).
 
 ### Requirements
-- Python (tested on **3.6.5**, should work on **>=2.7**)
+- Python (tested on **3.7**, should work on **>=3.6.5**)
 - Java >= 8 (for Stanford CoreNLP utilities)
 - Other dependencies are in `requirements.txt`
-Note: Currently works with PyTorch 0.4.0. Switch to the `pytorch-v0.3.1` branch if you want to use PyTorch 0.3.1.
+Note: Currently works with PyTorch 1,7,0.
 
 ### Usage
 Before delving into how to run the code, here is a quick overview of the contents:
  - Use the script `fetch_and_preprocess.sh` to download the [SICK dataset](http://alt.qcri.org/semeval2014/task1/index.php?id=data-and-tools), [Stanford Parser](http://nlp.stanford.edu/software/lex-parser.shtml) and [Stanford POS Tagger](http://nlp.stanford.edu/software/tagger.shtml), and [Glove word vectors](http://nlp.stanford.edu/projects/glove/) (Common Crawl 840) -- **Warning:** this is a 2GB download!), and additionally preprocees the data, i.e. generate dependency parses using [Stanford Neural Network Dependency Parser](http://nlp.stanford.edu/software/nndep.shtml).
+ - install java
+```bash
+sudo apt update
+sudo apt install openjdk-11-jdk
+```
  - `main.py`does the actual heavy lifting of training the model and testing it on the SICK dataset. For a list of all command-line arguments, have a look at `config.py`.
      - The first run caches GLOVE embeddings for words in the SICK vocabulary. In later runs, only the cache is read in during later runs.
      - Logs and model checkpoints are saved to the `checkpoints/` directory with the name specified by the command line argument `--expname`.

@@ -13,6 +13,12 @@ unzip -q -o sick_test_annotated.zip
 rm *.zip readme.txt
 cd ../../
 
+echo "Downloading Standford Core NLP"
+cd lib/
+wget -q -c http://nlp.stanford.edu/software/stanford-corenlp-latest.zip
+unzip stanford-corenlp-latest.zip
+cd ../
+
 echo "Downloading Stanford parser and tagger"
 cd lib/
 wget -q -c http://nlp.stanford.edu/software/stanford-postagger-2015-01-29.zip
@@ -25,6 +31,8 @@ unzip -q stanford-parser-full-2015-01-29.zip
 mv stanford-parser-full-2015-01-30/ stanford-parser
 rm stanford-parser-full-2015-01-29.zip
 cd ../
+
+
 
 echo "Downloading GLOVE"
 mkdir -p data/glove/
