@@ -1,8 +1,12 @@
 checkpoints/
 data/
 lib/*.class
-lib/stanford-parser
-lib/stanford-tagger
+lib/stanford-parser/
+lib/stanford-tagger/
+lib/stadford-corenlp-4.1.0/
+lib/*.jar
+lib/*.class
 .ftpconfig
 .ftpignore
 .vscode/
+*.jar

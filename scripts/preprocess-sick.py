@@ -89,8 +89,10 @@ if __name__ == '__main__':
     # java classpath for calling Stanford parser
     classpath = ':'.join([
         lib_dir,
-        os.path.join(lib_dir, 'stanford-parser/stanford-parser.jar'),
-        os.path.join(lib_dir, 'stanford-parser/stanford-parser-3.5.1-models.jar')])
+        os.path.join(lib_dir, 'stanford-corenlp-4.1.0/stanford-corenlp-4.1.0.jar'),
+        os.path.join(lib_dir, 'stanford-corenlp-4.1.0/stanford-corenlp-4.1.0-models.jar'),
+        ])
+    print("classpath: ", classpath)
 
     # split into separate files
     split(os.path.join(sick_dir, 'SICK_train.txt'), train_dir)

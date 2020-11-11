@@ -1,4 +1,5 @@
 import edu.stanford.nlp.process.WordTokenFactory;
+import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.ling.Word;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -55,7 +56,7 @@ public class ConstituencyParse {
   public List<HasWord> sentenceToTokens(String line) {
     List<HasWord> tokens = new ArrayList<>();
     if (tokenize) {
-      PTBTokenizer<Word> tokenizer = new PTBTokenizer(new StringReader(line), new WordTokenFactory(), "");
+      PTBTokenizer<Word> tokenizer = new PTBTokenizer(new StringReader(line), new CoreLabelTokenFactory(), "");
       for (Word label; tokenizer.hasNext(); ) {
         tokens.add(tokenizer.next());
       }
